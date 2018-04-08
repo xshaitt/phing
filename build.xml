@@ -4,7 +4,7 @@
     <target name="phpunit">
         <phpunit haltonfailure="true" printsummary="true" pharlocation="vendor/bin/phpunit">
             <batchtest>
-                <fileset dir="tests">
+                <fileset dir="./tests">
                     <include name="*Test.php"/>
                 </fileset>
             </batchtest>
