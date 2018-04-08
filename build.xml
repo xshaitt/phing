@@ -35,8 +35,8 @@
         <phpunit haltonfailure="true" pharlocation="./vendor/bin/phpunit">
             <formatter todir="reports" type="xml"/>
             <batchtest>
-                <fileset dir="tests">
-                    <include name="**/*Test.php"/>
+                <fileset dir="./tests">
+                    <include name="*Test.php"/>
                 </fileset>
             </batchtest>
         </phpunit>
