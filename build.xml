@@ -40,7 +40,7 @@
         <!--</fileset>-->
         <!--</batchtest>-->
         <!--</phpunit>-->
-        <phpunit haltonfailure="true" printsummary="true">
+        <phpunit haltonfailure="true" printsummary="true" pharlocation="vendor/bin/phpunit">
             <batchtest>
                 <fileset dir="tests">
                     <!--<include name="*Test.php"/>-->
