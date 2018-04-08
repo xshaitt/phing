@@ -2,7 +2,7 @@
 
 <project name="HelloWorld" basedir="." default="phpunit">
     <target name="phpunit">
-        <phpunit haltonfailure="true" printsummary="true" pharlocation="vendor/bin/phpunit">
+        <phpunit haltonfailure="true" printsummary="true">
             <batchtest>
                 <fileset dir="./tests">
                     <include name="*Test.php"/>
@@ -10,5 +10,4 @@
             </batchtest>
         </phpunit>
     </target>
-
 </project>
