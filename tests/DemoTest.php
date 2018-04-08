@@ -5,8 +5,8 @@
  * Date: 2018/4/4
  * Time: 下午3:56
  */
-//require __DIR__.'/../vendor/autoload.php';
-//use PHPUnit\Framework\TestCase;
+require __DIR__.'/../vendor/autoload.php';
+use PHPUnit\Framework\TestCase;
 
 class DemoTest extends TestCase
 {
