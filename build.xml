@@ -32,7 +32,7 @@
     <!-- Target: phpunit -->
     <!-- ============================================ -->
     <target name="phpunit">
-        <phpunit bootstrap="./vendor/autoload.php">
+        <phpunit bootstrap="./vendor/autoload.php" pharlocation="./vendor/bin/phpunit">
             <formatter type="xml" usefile="false"/>
             <batchtest>
                 <fileset dir="tests">
