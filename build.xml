@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="HelloWorld" default="dist">
-    <target name="dist">
-        <echo msg="Hello World!" />
+
+<project name="HelloWorld" basedir="." default="install">
+
+    <property name="package" value="${phing.project.name}" override="true"/>
+    <property name="installdir" value="install" override="true"/>
+    <property name="srcdir" value="${project.basedir}" override="true"/>
+
+    <!-- ============================================ -->
+    <!-- Fileset: codefiles -->
+    <!-- ============================================ -->
+    <fileset dir="${srcdir}" id="codefiles">
+        <include name="**"/>
+    </fileset>
+
+    <!-- ============================================ -->
+    <!-- Target: prepare -->
+    <!-- ============================================ -->
+    <target name="prepare">
+        <echo msg="Making directory ${installdir}"/>
+        <mkdir dir="${installdir}"/>
     </target>
+
+    <!-- ============================================ -->
+    <!-- Target: get -->
+    <!-- ============================================ -->
+    <target name="get">
+        <!--<svnupdate svnpath="file://D:/svn/myfirstrepo" todir="${srcdir}"/>-->
+    </target>
+
+    <!-- ============================================ -->
+    <!-- Target: phpunit -->
+    <!-- ============================================ -->
+    <target name="phpunit">
+        <phpunit haltonfailure="true" printsummary="true">
+            <batchtest>
+                <fileset dir="./tests">
+                    <include name="*Test.php"/>
+                </fileset>
+            </batchtest>
+        </phpunit>
+    </target>
+
+    <!-- ============================================ -->
+    <!-- Target: install -->
+    <!-- ============================================ -->
+    <target name="install" depends="phpunit,prepare">
+        <copy todir="${installdir}" overwrite="true">
+            <fileset refid="codefiles"/>
+        </copy>
+        <copy file="./build.xml" tofile="./${installdir}/build.xml" overwrite="true"/>
+    </target>
+
 </project>
