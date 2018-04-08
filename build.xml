@@ -32,7 +32,7 @@
     <!-- Target: phpunit -->
     <!-- ============================================ -->
     <target name="phpunit">
-        <phpunit haltonfailure="true" printsummary="true">
+        <phpunit haltonfailure="true" printsummary="true" pharlocation="/usr/local/bin/phpunit">
             <batchtest>
                 <fileset dir="./tests">
                     <include name="*Test.php"/>
