@@ -32,11 +32,11 @@
     <!-- Target: phpunit -->
     <!-- ============================================ -->
     <target name="phpunit">
-        <phpunit haltonfailure="true" pharlocation="./vendor/bin/phpunit">
-            <formatter todir="reports" type="xml"/>
+        <phpunit bootstrap="./vendor/autoload.php">
+            <formatter type="xml" usefile="false"/>
             <batchtest>
-                <fileset dir="./tests">
-                    <include name="*Test.php"/>
+                <fileset dir="tests">
+                    <include name="**/*Test.php"/>
                 </fileset>
             </batchtest>
         </phpunit>
