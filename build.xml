@@ -1,45 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="HelloWorld" basedir="." default="install">
-
-    <property name="package" value="${phing.project.name}" override="true"/>
-    <property name="installdir" value="install" override="true"/>
-    <property name="srcdir" value="${project.basedir}" override="true"/>
-
-    <!-- ============================================ -->
-    <!-- Fileset: codefiles -->
-    <!-- ============================================ -->
-    <fileset dir="${srcdir}" id="codefiles">
-        <include name="**"/>
-    </fileset>
-
-    <!-- ============================================ -->
-    <!-- Target: prepare -->
-    <!-- ============================================ -->
-    <target name="prepare">
-        <echo msg="Making directory ${installdir}"/>
-        <mkdir dir="${installdir}"/>
-    </target>
-
-    <!-- ============================================ -->
-    <!-- Target: get -->
-    <!-- ============================================ -->
-    <target name="get">
-        <echo msg="更新代码，应该可以使用外部命令git"/>
-    </target>
-
-    <!-- ============================================ -->
-    <!-- Target: phpunit -->
-    <!-- ============================================ -->
+<project name="HelloWorld" basedir="." default="phpunit">
     <target name="phpunit">
-        <!--<phpunit bootstrap="./vendor/autoload.php" pharlocation="./vendor/bin/phpunit">-->
-        <!--<formatter type="xml" usefile="false"/>-->
-        <!--<batchtest>-->
-        <!--<fileset dir="tests">-->
-        <!--<include name="**/*Test.php"/>-->
-        <!--</fileset>-->
-        <!--</batchtest>-->
-        <!--</phpunit>-->
         <phpunit haltonfailure="true" printsummary="true" pharlocation="vendor/bin/phpunit">
             <batchtest>
                 <fileset dir="tests">
@@ -47,16 +9,6 @@
                 </fileset>
             </batchtest>
         </phpunit>
-    </target>
-
-    <!-- ============================================ -->
-    <!-- Target: install -->
-    <!-- ============================================ -->
-    <target name="install" depends="phpunit">
-        <copy todir="${installdir}" overwrite="true">
-            <fileset refid="codefiles"/>
-        </copy>
-        <copy file="./build.xml" tofile="./${installdir}/build.xml" overwrite="true"/>
     </target>
 
 </project>
