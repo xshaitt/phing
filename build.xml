@@ -32,7 +32,7 @@
     <!-- Target: phpunit -->
     <!-- ============================================ -->
     <target name="phpunit">
-        <phpunit haltonfailure="true" pharlocation="/usr/local/bin/phpunit">
+        <phpunit haltonfailure="true" pharlocation="./vendor/bin/phpunit">
             <formatter todir="reports" type="xml"/>
             <batchtest>
                 <fileset dir="tests">
