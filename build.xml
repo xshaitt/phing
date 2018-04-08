@@ -25,7 +25,7 @@
     <!-- Target: get -->
     <!-- ============================================ -->
     <target name="get">
-        <!--<svnupdate svnpath="file://D:/svn/myfirstrepo" todir="${srcdir}"/>-->
+        <echo msg="更新代码，应该可以使用外部命令git"/>
     </target>
 
     <!-- ============================================ -->
